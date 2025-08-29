@@ -64,7 +64,7 @@ export default function ContactForm() {
           <input name="subject" type="text" placeholder="נושא או קורס בו נדרשת עזרה" className="w-full rounded-lg p-3 bg-[var(--color-bg)] text-white border border-[var(--color-border)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]" />
           <textarea name="message" rows="5" placeholder="פירוט הבקשה" className="w-full rounded-lg p-3 bg-[var(--color-bg)] text-white border border-[var(--color-border)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"></textarea>
 
-          <button type="submit" disabled={loading} className="w-full font-bold py-3 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 shadow-lg hover:scale-[1.02] transition disabled:opacity-60">
+          <button type="submit" disabled={loading} className="btn w-full font-bold py-3 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 shadow-lg hover:scale-[1.02] transition disabled:opacity-60">
             {loading ? "שולח..." : "שלח"}
           </button>
 
