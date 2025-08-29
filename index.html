@@ -1,106 +1,74 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/AvivMalkaTeacher/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>מבחנים ללא לחץ - שיעורים פרטיים והכנה למבחנים</title>
-    <meta name="description" content="הפסיקו להילחץ לפני מבחנים וציונים. ליווי אישי ושיטה מותאמת להצלחה במתמטיקה, אנגלית וקורסים אקדמיים. קבעו שיעור היכרות היום!" />
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/AvivMalkaTeacher/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>מבחנים ללא לחץ - שיעורים פרטיים והכנה למבחנים</title>
+  <meta name="description" content="הפסיקו להילחץ לפני מבחנים וציונים. ליווי אישי ושיטה מותאמת להצלחה במתמטיקה, אנגלית וקורסים אקדמיים. קבעו שיעור היכרות היום!" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="YOUR_WEBSITE_URL_HERE" />
-    <meta property="og:title" content="מבחנים ללא לחץ - שיעורים פרטיים והכנה למבחנים" />
-    <meta property="og:description" content="הפסיקו להילחץ לפני מבחנים וציונים. ליווי אישי ושיטה מותאמת להצלחה במתמטיקה, אנגלית וקורסים אקדמיים. קבעו שיעור היכרות היום!" />
-    <meta property="og:image" content="https://placehold.co/1200x630/8A2BE2/FFFFFF?text=Aviv+Learning" /> <!-- Placeholder OG Image -->
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="YOUR_WEBSITE_URL_HERE" />
+  <meta property="og:title" content="מבחנים ללא לחץ - שיעורים פרטיים והכנה למבחנים" />
+  <meta property="og:description" content="הפסיקו להילחץ לפני מבחנים וציונים. ליווי אישי ושיטה מותאמת להצלחה במתמטיקה, אנגלית וקורסים אקדמיים. קבעו שיעור היכרות היום!" />
+  <meta property="og:image" content="https://placehold.co/1200x630/0D1B2A/F49F0A?text=Aviv+Learning" />
 
-    <!-- Tailwind CSS CDN (for quick demo, in a real Vite project it's built) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-      /* Custom font: Inter */
-      body {
-        font-family: 'Inter', sans-serif;
-      }
-      /* Ensure text direction is applied globally */
-      html, body {
-        direction: rtl;
-        text-align: right; /* Default text alignment for RTL */
-      }
-      /* Custom Tailwind Configuration (for CDN, otherwise in tailwind.config.js) */
-      /* This is a simplified version just for demonstration with CDN */
-      :root {
-        --color-purple-50: #F5F3FF;
-        --color-purple-100: #EDE9FE;
-        --color-purple-500: #8B5CF6;
-        --color-purple-700: #6D28D9;
-        --color-purple-800: #5B21B6;
-        --color-purple-900: #4C1D95;
-        --color-purple-950: #290A45; /* Darker for gradients */
-        --color-indigo-950: #1B0F3F; /* Even darker for gradients */
-        --color-orange-300: #FDBA74;
-        --color-orange-500: #F97316;
-        --color-orange-600: #EA580C;
-        --color-orange-700: #C2410C;
-        --color-yellow-300: #FDE047;
-        --color-green-500: #22C55E;
-        --color-green-600: #16A34A;
-        --color-green-700: #15803D;
-        --color-gray-300: #D1D5DB;
-        --color-gray-600: #4B5563;
-        --color-gray-700: #374151;
-        --color-gray-800: #1F2937;
-      }
-    </style>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              inter: ['Inter', 'sans-serif'],
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom fonts -->
+  
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+
+
+  <style>
+    html, body {
+      direction: rtl;
+      text-align: right;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+    }
+
+    /* Global color scheme */
+    :root {
+      --color-bg: #0a0a0f;
+      --color-bg-alt: #141420;
+      --color-accent: #7c3aed;
+      --color-text: #ffffff;
+    }
+  </style>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+            assistant: ['Assistant', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              bg: '#0D1B2A',
+              bgAlt: '#0F2236',
+              accent: '#F49F0A',
+              text: '#FFFFFF',
             },
-            colors: {
-              purple: {
-                50: '#F5F3FF',
-                100: '#EDE9FE',
-                500: '#8B5CF6',
-                700: '#6D28D9',
-                800: '#5B21B6',
-                900: '#4C1D95',
-                950: '#290A45', // Custom dark purple for gradients
-              },
-              indigo: {
-                950: '#1B0F3F', // Custom very dark indigo for gradients
-              },
-              orange: {
-                300: '#FDBA74',
-                500: '#F97316',
-                600: '#EA580C',
-                700: '#C2410C',
-              },
-              yellow: {
-                300: '#FDE047',
-              },
-              green: {
-                500: '#22C55E',
-                600: '#16A34A',
-                700: '#15803D',
-              },
-              gray: {
-                300: '#D1D5DB',
-                600: '#4B5563',
-                700: '#374151',
-                800: '#1F2937',
-              },
-            }
           }
         }
       }
-    </script>
-  <script type="module" crossorigin src="/AvivMalkaTeacher/assets/index-IRlMpPlL.js"></script>
-  <link rel="stylesheet" crossorigin href="/AvivMalkaTeacher/assets/index-Dtn62Xmo.css">
+    }
+  </script>
+  <script type="module" crossorigin src="/AvivMalkaTeacher/assets/index-BoDOSQZE.js"></script>
+  <link rel="stylesheet" crossorigin href="/AvivMalkaTeacher/assets/index-X0_7xOYb.css">
 </head>
-<body>
-    <div id="root"></div>
+<body class="bg-[var(--color-bg)] text-[var(--color-text)]">
+  <div id="root"></div>
 </body>
 </html>
