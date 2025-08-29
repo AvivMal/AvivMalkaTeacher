@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "tailwindcss";
 
 
 :root {
@@ -78,11 +77,14 @@ button:focus { outline:2px solid var(--color-accent-alt); outline-offset:3px; }
               0 0 0 1px rgba(255, 255, 255, 0.04); /* הילה עדינה לשחור */
 }
 .btn {
+  position: relative;
+  isolation: isolate;         /* כדי שה-::before יישאר בתוך הכפתור */
   appearance: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: .5rem;
+
   border-radius: 16px;
   border: 1px solid transparent;
   padding: 0.75em 2em;
@@ -91,32 +93,27 @@ button:focus { outline:2px solid var(--color-accent-alt); outline-offset:3px; }
   line-height: 1;
   text-decoration: none;
   cursor: pointer;
+
   color: #fff !important;
-  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-alt) 100%);
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-alt) 100%) !important;
   box-shadow: 0 4px 20px rgba(124,58,237,.4), inset 0 1px 0 rgba(255,255,255,.2);
   transition: all .3s cubic-bezier(.4,0,.2,1);
 }
-.btn::before {
-  content:'';
+.btn::before{
+  content:"";
   position:absolute;
   inset:0;
   left:-100%;
+  border-radius: inherit;
   background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.2) 50%, transparent 100%);
   transition:left .6s ease;
+  z-index:-1;
 }
-.btn:hover::before { left: 100%; }
-.btn:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 8px 30px rgba(124,58,237,.6), inset 0 1px 0 rgba(255,255,255,.3); }
-.btn:active { transform: translateY(0) scale(.98); }
-.btn:focus { outline:2px solid var(--color-accent-alt); outline-offset:3px; }
+.btn:hover::before{ left:100%; }
+.btn:hover{ transform: translateY(-2px) scale(1.02); box-shadow: 0 8px 30px rgba(124,58,237,.6), inset 0 1px 0 rgba(255,255,255,.3); }
+.btn:active{ transform: translateY(0) scale(.98); }
+.btn:focus{ outline:2px solid var(--color-accent-alt); outline-offset:3px; }
 
-/* אם יש לך וריאציות – זהב, אפור וכו' */
-.btn--gold {
-  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
-}
-.btn--ghost {
-  background: transparent;
-  border-color: rgba(255,255,255,0.2);
-}
-
-/* עוגן שמתחפש לכפתור */
-a.btn { text-decoration: none; }
+.btn--gold{ background: linear-gradient(135deg,#f59e0b 0%,#fbbf24 100%) !important; }
+.btn--ghost{ background: transparent !important; border-color: rgba(255,255,255,.2); color: var(--color-text) !important; }
+a.btn{ text-decoration: none; }
