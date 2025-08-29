@@ -1,10 +1,50 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, A11y } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
 import heroBackgroundImage from './pictures/47dd701a-860b-4a13-aea7-ac0ef6b68bd7.jpg';
 import ContactForm from "./components/ContactForm";
 import assessmentImage from "./pictures/personal_assesments.png";
 import materialsImage from "./pictures/Live Session2.png";
 import lessonImage from "./pictures/Tailored Materials.png";
 import trackingImage from "./pictures/Tracking & Improvement.png";
+import howSectionImg from './pictures/how section.png'
+
+const testimonials = [
+  {
+    quote:
+      '״אביב זיהה את הקשיים ונתן פתרונות שעובדים. פעם ראשונה בחיים ניגשתי למבחן רגוע, והציון קפץ מעבר למה שציפיתי.״',
+    name: 'דניאל',
+    role: 'תלמיד תיכון',
+    result: 'מ־68 ל־92 תוך חודש',
+    stars: 5,
+  },
+  {
+    quote:
+      '״אביב הצליח להפוך לי את החומר המורכב להרבה יותר ברור ומובן, סוף סוף הרגשתי שאני בשליטה ובקצב ולא צריכה להדביק את כל החומר לפני המבחן.״',
+    name: 'שירה',
+    role: 'סטודנטית למערכות מידע',
+    result: 'סיימה בהצטיינות קורס שנכשלה בו פעמיים',
+    stars: 5,
+  },
+  {
+    quote:
+      '״הגעתי לאביב כדי להכין את עצמי לראיון עבודה באנגלית, היה לי פחד ותחושה שאני לא מצליח לדבר רצוף. תוך חודשיים עם התרגול והשיטות שקיבלתי חיזקתי את הביטחון והרמה, עברתי את הראיון והייתי גאה בתוצאה״',
+    name: 'רועי כהן',
+    role: 'בוגר תואר מערכות מידע',
+    result: 'עבר ראיון עבודה באנגלית והתקבל למשרה בהייטק',
+    stars: 5,
+  },
+   {
+    quote:
+      '״בגלל שירות מילואים לא נכחתי כמעט בכלל בשיעורי מאקרו כלכלה, בסדרה קצרה של 5 שיעורים עם אביב סגרתי את כל הפערים, ובסוף עברתי את הקורס בציון שלא דמיינתי שאפשרי במצב שלי.״',
+    name: 'שחר',
+    role: 'סטודנטית למנהל עסקים',
+    result: 'למרות היעדרותה מהקורס, עברה בציון 90',
+    stars: 5,
+  },
+];
 
 // Component for animating numbers on scroll
 const NumberCounter = ({ endValue, duration = 2000, suffix = "" }) => {
@@ -91,7 +131,7 @@ export default function TutoringLandingPage() {
   ];
 
   return (
-   <div dir="rtl" className="bg-[var(--color-bg)] text-[var(--color-text)] font-assistant overflow-hidden">
+   <div dir="rtl" className="bg-[var(--color-bg)] text-[var(--color-text)] font-assistant overflow-x-hidden">
       {/* --- GLOBAL BACKGROUND FX (blurred purple/blue orbs) --- */}
       <div className="pointer-events-none fixed inset-0 -z-10">
         <div className="absolute -top-24 -right-32 h-96 w-96 rounded-full bg-gradient-to-br from-purple-700/40 to-blue-600/40 blur-3xl" />
@@ -114,12 +154,12 @@ export default function TutoringLandingPage() {
         <div className="relative z-10 max-w-4xl mx-auto glass-card p-8 shadow-2xl premium-border">
           <AnimatedSection>
             <h1 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight gradient-text">
-              מפסיקים להילחץ לפני מבחנים <br /> ומתחילים להרגיש בטוחים בחומר
+              נתקעתם בחומר? המבחן מתקרב?<br /> זה הזמן ללמוד איך להגיע לציון שתמיד רציתם
             </h1>
           </AnimatedSection>
           <AnimatedSection delay={200}>
             <p className="text-lg md:text-xl mb-8 text-[var(--color-text-muted)]">
-              עם שיטה אישית, ליווי צמוד וחומר מותאם, גם לך יהיה בדיוק את מה שצריך כדי להצליח.
+              עם שיטה מותאמת אישית, ליווי צמוד וחומר ממוקד, גם לך יהיה בדיוק את מה שצריך כדי להצליח.
             </p>
           </AnimatedSection>
           <AnimatedSection delay={400}>
@@ -151,94 +191,165 @@ export default function TutoringLandingPage() {
       </section>
 
       {/* WHY SECTION */}
-      <section className="py-20 px-6 max-w-6xl mx-auto">
-        <AnimatedSection>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-6 text-gradient-purple drop-shadow-lg">מרגישים אבודים לפני המבחן?</h2>
-          <p className="text-center text-lg max-w-3xl mx-auto mb-12 text-[var(--color-text-muted)]">
-            לא מספיקים את כל החומר בזמן? לומדים שעות ועדין מרגישים שזה לא נכנס?<br />
-            הבעיה לא בכם, הבעיה היא שעד עכשיו פשוט לא למדתם נכון. <br />
-            אני מאמין שכל תלמיד יכול להצליח כשלומדים אותו בצורה הנכונה והמתאימה עבורו. <br />
-            בשנים האחרונות עזרתי לתלמידים לעבור מבחן ביטחון אל תחושת שליטה מלאה והצלחה אמיתית במבחנים.
-          </p>
-        </AnimatedSection>
+<section className="py-20 px-6 max-w-6xl mx-auto relative overflow-visible" dir="rtl">
+  <div className="grid md:grid-cols-2 gap-12 items-center">
+    <AnimatedSection>
+      <h2 className="text-3xl md:text-4xl font-extrabold text-center md:text-right mb-6 text-gradient-purple drop-shadow-lg">
+        מרגישים אבודים לפני המבחן?
+      </h2>
+      <p className="text-lg text-[var(--color-text-muted)] leading-relaxed text-center md:text-right">
+        אני יודע איך זה מרגיש לשבת מול חומר לימודי במשך שעות, להשקיע זמן וכוח ועדיין להרגיש תקוע ומתוסכל לפני מבחן.
+        <br /><br />
+        גם אני הייתי שם. ההבנה ששיטת הלמידה היא הבעיה, ולא היכולת שלי, שינתה לי את הכל. ברגע שפיתחתי לעצמי דרך פשוטה וברורה ללמוד – הציונים החלו לעלות, והביטחון חזר.
+        <br /><br />
+        זו הסיבה שאני עושה את מה שאני עושה היום: אני מאמין שאף תלמיד לא צריך לעבור את הדרך הזו לבד, כל אחד יכול להצליח ברגע שהוא לומד את השיטה שמתאימה לו,
+        ואין תחושה מספקת יותר עבורי מלראות תלמיד שמצליח ומספר על ציונים שלא האמין שיוכל להגיע אליהם.
+      </p>
+    </AnimatedSection>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {[{
-            icon:'⏱️', title:'לא מבזבזים זמן', text:'שיעורים ממוקדים בנושאים הדרושים בלבד, במטרה להשלים פערים בזמן קצר ולהגיע מוכנים למבחן.'
-          },{
-            icon:'🧠', title:'החומר לא יושב כמו שצריך?', text:'החומר בשיעורים הרגילים לא תמיד ברור? נפשט יחד נושאים מורכבים ונהפוך אותם לנגישים.'
-          },{
-            icon:'📈', title:'נמאס מציונים נמוכים?', text:'הגיע הזמן לעבור מציונים להצטיינות – עם אסטרטגיה אישית שתשדרג את הביצועים ותביא תוצאות.'
-          }].map((c, i) => (
-            <AnimatedSection key={i} delay={i*200}>
-              <div className="glass-card interactive-card p-6 text-center">
-                <div className="text-4xl mb-4">{c.icon}</div>
-                <h3 className="font-bold text-xl mb-2">{c.title}</h3>
-                <p className="text-[var(--color-text-muted)]">{c.text}</p>
-              </div>
-            </AnimatedSection>
-          ))}
+    <AnimatedSection delay={200}>
+      <img 
+        src={howSectionImg} 
+        alt="סטודנט מרוצה אחרי למידה" 
+        className="rounded-2xl shadow-xl mx-auto"
+      />
+    </AnimatedSection>
+  </div>
+</section>
+
+{/* HOW SECTION */}
+<section className="bg-[var(--color-bg-alt)] py-20 px-6">
+  <AnimatedSection>
+    <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-6">
+      איך מתקדמים לציון גבוה - צעד אחר צעד
+    </h2>
+    <p className="text-center text-lg max-w-3xl mx-auto mb-12 text-[var(--color-text-muted)]">
+      מסלול למידה מדויק וגמיש, מותאם אישית עבורך, שמספק תוצאות ברורות ומייצר ביטחון לפני כל מבחן.
+    </p>
+  </AnimatedSection>
+
+  <div className="grid md:grid-cols-4 gap-8 max-w-7xl mx-auto">
+    {[
+      {
+        img: assessmentImage, alt:'אבחון אישי',
+        title:'אבחון שמתרגם בלבול לתוכנית פעולה',
+        text:'כבר אחרי השיעור הראשון יש לך מפת דרך אישית: איפה הפערים, מה ללמוד ומתי. ממפים חוזקות וחולשות ובונים סדר עדיפויות ברור.'
+      },
+      {
+        img: lessonImage, alt:'שיעור חי',
+        title:'שיעור שמחבר נקודות ומייצר בהירות',
+        text:'מפגש זום או פרונטלי ממוקד עם הסברים פשוטים, דוגמאות ותרגול בזמן אמת, כדי שהחומר יתיישב בראש כבר במהלך השיעור.'
+      },
+      {
+        img: materialsImage, alt:'חומר מותאם',
+        title:'סיכומים ותרגולים שמקנים שליטה מלאה',
+        text:'סיכומים ממוקדים, הקלטות שיעורים וסט תרגולים שמאפשרים ללמוד בקצב שלך, להתקדם עצמאית ולבנות ביטחון בין השיעורים.'
+      },
+      {
+        img: trackingImage, alt:'מעקב ושיפור',
+        title:'ווידוא התקדמות ליעד',
+        text:'בדיקות ממוקדות ומשוב קצר שומרים אותך במסלול הנכון, כך נתקדם צעד-צעד עד המטרה.'
+      }
+    ].map((card, i) => (
+      <AnimatedSection key={i} delay={i*200}>
+        <div className="glass-card-alt hover-lift p-6 text-center h-full">
+          <img src={card.img} alt={card.alt} className="rounded-lg mb-4 object-cover h-40 w-full shadow-md" />
+          <h3 className="font-bold text-xl mb-2 text-gradient-purple">{card.title}</h3>
+          <p className="text-[var(--color-text-muted)]">{card.text}</p>
         </div>
-      </section>
+      </AnimatedSection>
+    ))}
+  </div>
 
-      {/* HOW SECTION */}
-      <section className="bg-[var(--color-bg-alt)] py-20 px-6">
-        <AnimatedSection>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-6">איך אנחנו עושים את זה?</h2>
-          <p className="text-center text-lg max-w-3xl mx-auto mb-12 text-[var(--color-text-muted)]">
-            השיטה משלבת מבנה למידה ברור, אווירה תומכת, ותוכן לימודי מותאמים אישית כדי להבטיח הבנה מלאה של החומר,
-            <br />
-            ביטחון עצמי גבוה, ויכולת ליישם כל מה שנלמד בפועל. הנה איך זה קורה בפועל:
-          </p>
-        </AnimatedSection>
+  <AnimatedSection delay={800}>
+    <div className="mt-12 text-center">
+      <button className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 shadow-lg hover:scale-[1.02] transition">
+        שריינו את השיעור הקרוב הבא
+      </button>
+      <div className="mt-3 text-sm text-[var(--color-text-muted)]">
+      </div>
+    </div>
+  </AnimatedSection>
+</section>
 
-        <div className="grid md:grid-cols-4 gap-8 max-w-7xl mx-auto">
-          {[{
-            img: assessmentImage, alt:'אבחון אישי', title:'אבחון אישי', text:'נתחיל בזיהוי נקודות החוזק והחולשה, ונבנה תוכנית מותאמת אישית כדי לבנות תוכנית לשיפור מדורג ובטוח.'
-          },{
-            img: materialsImage, alt:'חומר מותאם', title:'שיעור חי', text:'מפגש ממוקד ומהנה, בזום או פרונטלי, המשלב הסברים ברורים, דוגמאות ותרגול מעשי בזמן אמת.'
-          },{
-            img: lessonImage, alt:'שיעור חי', title:'חומר מותאם', text:'סיכומים, הקלטות ותרגולים ממוקדים, מותאמים אישית לקצב ולצרכים, להמשך תרגול ולמידה עצמאית.'
-          },{
-            img: trackingImage, alt:'מעקב ושיפור', title:'מעקב ושיפור', text:'בחינת ההתקדמות במבחני דמה ומשוב קבוע, עם התאמות מתמשכות עד להשגת המטרה.'
-          }].map((card, i) => (
-            <AnimatedSection key={i} delay={i*200}>
-              <div className="glass-card-alt hover-lift p-6 text-center">
-                <img src={card.img} alt={card.alt} className="rounded-lg mb-4 object-cover h-40 w-full shadow-md" />
-                <h3 className="font-bold text-xl mb-2 text-gradient-purple">{card.title}</h3>
-                <p className="text-[var(--color-text-muted)]">{card.text}</p>
-              </div>
-            </AnimatedSection>
-          ))}
+
+{/* TESTIMONIALS */}
+<section className="py-20 px-6 max-w-6xl mx-auto" dir="rtl">
+  <AnimatedSection>
+    <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-6 text-gradient-gold">
+      מה אומרים התלמידים?
+    </h2>
+  </AnimatedSection>
+
+  <Swiper
+  modules={[Navigation, A11y]}
+  navigation
+  spaceBetween={28}
+  slidesPerView={1}
+  breakpoints={{
+    768:  { slidesPerView: 2, spaceBetween: 28 },
+    1024: { slidesPerView: 2, spaceBetween: 32 }, // רחב ונושם יותר בדסקטופ
+    1440: { slidesPerView: 3, spaceBetween: 32 }, // 3 שקופיות רק במסכים רחבים
+  }}
+  dir="rtl"
+  className="overflow-visible"   // שומר על האייקון והחיצים גלויים
+>
+  {testimonials.map((t, i) => (
+    <SwiperSlide key={i} className="flex">
+      <AnimatedSection delay={i * 150} className="flex-1">
+        <div className="flex w-full">
+          <blockquote
+            className="relative glass-card p-7 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1
+                       card-strong-border flex flex-col justify-between w-full min-h-[360px]  // גובה אחיד
+                       md:min-h-[400px]"
+          >
+            {/* אייקון ציטוט – ממוקם בלי חיתוך */}
+            <div className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2
+                            h-10 w-10 rounded-full bg-gradient-to-r from-purple-600 to-blue-600
+                            text-white grid place-items-center shadow-lg z-20">
+              <span className="text-2xl leading-none">“</span>
+            </div>
+
+            {/* טקסט */}
+            <p className="italic text-lg leading-relaxed mb-4">{t.quote}</p>
+
+            {/* רצועת תוצאה + פוטר */}
+            <div className="mt-auto">
+              {t.result && (
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full
+                                bg-[color-mix(in_oklab,var(--color-primary),#000_85%)]/10
+                                text-[var(--color-primary)] font-semibold text-sm">
+                  🎯 {t.result}
+                </div>
+              )}
+              <footer className="mt-4 flex items-center justify-between">
+                <div className="font-semibold text-[var(--color-text-muted)]">
+                  {t.name} · <span className="font-normal">{t.role}</span>
+                </div>
+                <div aria-label={`${t.stars} כוכבים`} className="text-yellow-400">
+                  {'★'.repeat(t.stars)}{'☆'.repeat(5 - t.stars)}
+                </div>
+              </footer>
+            </div>
+          </blockquote>
         </div>
-      </section>
+      </AnimatedSection>
+    </SwiperSlide>
+  ))}
+</Swiper>
 
-      {/* TESTIMONIALS */}
-      <section className="py-20 px-6 max-w-6xl mx-auto">
-        <AnimatedSection>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-6 text-gradient-gold">מה אומרים התלמידים?</h2>
-          <p className="text-center text-lg max-w-3xl mx-auto mb-12 text-[var(--color-text-muted)]">
-            סיפורי ההצלחה האמיתיים של תלמידים וסטודנטים שהפכו את האתגרים להישגים ומימשו את הפוטנציאל שלהם:
-          </p>
-        </AnimatedSection>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {[{
-            text: '"אביב ידע לזהות את הקשיים ולתת פתרונות אמיתיים שעבדו. הציונים השתפרו משמעותית וניגשתי למבחן עם ביטחון מלא."', who: 'דניאל, תלמיד תיכון'
-          },{
-            text: '"השיעורים נתנו לי שיטות עבודה וכלים פרקטיים. החומר המורכב הפך לברור והביטחון שלי גדל בצורה משמעותית."', who: 'שירה, סטודנטית למערכות מידע'
-          },{
-            text: '"התאמה אישית מלאה וקצב נכון. סוף סוף הבנתי את מה שהיה נראה בלתי אפשרי."', who: 'רועי כהן, סטודנט למערכות מידע ניהוליות'
-          }].map((t, i) => (
-            <AnimatedSection key={i} delay={i*200}>
-              <blockquote className="glass-card p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between h-full border border-[var(--color-border)]">
-                <p className="italic text-lg">{t.text}</p>
-                <footer className="mt-4 font-semibold text-[var(--color-text-muted)] text-left">{t.who}</footer>
-              </blockquote>
-            </AnimatedSection>
-          ))}
-        </div>
-      </section>
+  {/* מיני-CTA מתחת לקרוסלה */}
+  <AnimatedSection delay={600}>
+    <div className="text-center mt-12">
+      <button className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 shadow-lg hover:scale-[1.02] transition">
+        בדיקת זמינות לשיעור עכשיו
+      </button>
+      <div className="mt-3 text-sm text-[var(--color-text-muted)]">
+        ⭐️ מעל 50 תלמידים מרוצים
+      </div>
+    </div>
+  </AnimatedSection>
+</section>
 
       {/* NUMBERS + CTA */}
       <section className="relative bg-gradient-to-r from-purple-800/60 to-blue-900/60 text-white py-20 px-6">
@@ -259,60 +370,185 @@ export default function TutoringLandingPage() {
         </div>
       </section>
 
-      {/* WHAT I OFFER */}
-      <section className="py-20 px-6">
-        <AnimatedSection>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-6 text-gradient-cyan">מה אני מציע?</h2>
-          <p className="text-center text-lg max-w-3xl mx-auto mb-12 text-[var(--color-text-muted)]">
-            אני מציע שיעורים פרטיים אחד על אחד או בקבוצות קטנות, בזום או פרונטלי, באורך 60 דקות, עם אפשרות לחבילות מוזלות:
-          </p>
-        </AnimatedSection>
+     {/* WHO IS IT FOR? */}
+<section className="py-20 px-6 bg-gradient-to-r from-purple-900/40 to-blue-900/40" dir="rtl">
+  <div className="max-w-6xl mx-auto">
+    <AnimatedSection>
+      <div className="glass-card p-8 md:p-10 premium-border">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4">
+          זה מתאים במיוחד ל…
+        </h2>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {/* רשימת bullets רספונסיבית */}
+        <ul className="grid md:grid-cols-2 gap-4 md:gap-6">
           {[
-            { id:1, title:'שיעור חד-פעמי', price:'בזום: 150₪ | פרונטלי: 200₪', desc:'מושלם להפחתת ראשוניות או לחיזוק נקודתי.', color:'from-purple-600 to-purple-500'},
-            { id:2, title:'חבילת 4 שיעורים', price:'הנחה 10%', desc:'פתרון מעולה למי שרוצה להתקדם בקצב יציב.', color:'from-blue-600 to-blue-500'},
-            { id:3, title:'חבילת 8 שיעורים', price:'הכי משתלם! הנחה 15%', desc:'המסלול המומלץ להצלחה ארוכת טווח ושיפור משמעותי.', color:'from-orange-500 to-amber-400'},
-          ].map((card, i) => (
-            <AnimatedSection key={card.id} delay={i*200}>
-              <div className="relative glass-card p-8 text-center premium-border">
-                <div className={`absolute -top-6 left-1/2 -translate-x-1/2 text-white rounded-full h-12 w-12 flex items-center justify-center text-xl font-bold bg-gradient-to-br ${card.color}`}>{card.id}</div>
-                <h3 className="font-bold text-2xl mt-4 mb-4">{card.title}</h3>
-                <p className="text-lg mb-6">{card.price.includes('הכי משתלם!') ? <><span className="bg-yellow-200/20 text-yellow-300 px-3 py-1 rounded-full text-sm font-bold ml-2">הכי משתלם!</span> {card.price.replace('הכי משתלם! ', '')}</> : card.price}</p>
-                <p className="text-[var(--color-text-muted)] mb-6">{card.desc}</p>
-                <button onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>בחר חבילה</button>
-              </div>
+            'סטודנטים במערכות מידע או מנהל עסקים',
+            'סטודנטים במכינה קדם־אקדמית באנגלית או מתמטיקה',
+            'תלמידי תיכון שרוצים ציון גבוה בבגרויות באנגלית או מתמטיקה',
+            'מי שצריך ביטחון לקראת מצגת או ראיון באנגלית',
+            'תלמידים שרוצים ללמוד שיטות למידה יעילות להצלחה',
+            'מי שזקוק לסגירת פערים מהירה (מילואים, היעדרויות וכו׳)',
+          ].map((item, i) => (
+            <AnimatedSection key={i} delay={i * 120}>
+              <li className="flex items-start gap-3 bg-white/5 hover:bg-white/7 transition rounded-xl p-4">
+                {/* אייקון צ׳ק מעוגל */}
+                <span
+                  aria-hidden="true"
+                  className="inline-flex items-center justify-center w-7 h-7 rounded-full
+                             bg-gradient-to-br from-purple-600 to-blue-600 text-white text-sm shrink-0 mt-0.5 shadow-md">
+                  ✓
+                </span>
+                <span className="leading-relaxed">{item}</span>
+              </li>
             </AnimatedSection>
           ))}
-        </div>
-        <AnimatedSection delay={650}>
-          <div className="text-center mt-12">
-            <button onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>בדוק זמינות והתחל בשיעור היכרות</button>
-          </div>
-        </AnimatedSection>
-      </section>
+        </ul>
 
-      {/* WHO IS IT FOR? */}
-      <section className="py-20 px-6 bg-gradient-to-r from-purple-900/40 to-blue-900/40">
-        <AnimatedSection>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-12">למי זה מתאים?</h2>
-        </AnimatedSection>
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {[{
-            title:'סטודנטים', img:'https://placehold.co/400x300/505050/FFFFFF?text=סטודנטים', text:'אם אתם לומדים מערכות מידע, מנהל עסקים או מקצועות דומים ורוצים לא רק ללמוד, אלא גם להצטיין בחשיבה – השיטה שלי תפורה עבורכם.'
-          },{
-            title:'תלמידי תיכון', img:'https://placehold.co/400x300/505050/FFFFFF?text=תלמידי+תיכון', text:'לתלמידי כיתות י\'-י"ב המעוניינים בהבנה יסודית וממוקדת לבגרויות במתמטיקה ואנגלית, כדי להגיע לציון האקדמי שלי להצלחה.'
-          }].map((c, i) => (
-            <AnimatedSection key={i} delay={i*200}>
-              <div className="glass-card hover-lift p-8 text-center">
-                <img src={c.img} alt={c.title} className="w-full h-64 object-cover rounded-lg mb-6" onError={(e) => { e.currentTarget.src = 'https://placehold.co/400x300/505050/FFFFFF?text=תמונה+חסרה'; }} />
-                <h3 className="font-bold text-2xl mb-2">{c.title}</h3>
-                <p className="text-[var(--color-text-muted)]">{c.text}</p>
-              </div>
-            </AnimatedSection>
-          ))}
+        {/* מיני־CTA אופציונלי מתחת לרשימה */}
+        <div className="text-center mt-10">
+          <button
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            className="inline-flex items-center gap-2"
+          >
+            בדיקת זמינות לשיעור עכשיו
+          </button>
         </div>
-      </section>
+      </div>
+    </AnimatedSection>
+  </div>
+</section>
+
+{/* WHAT I OFFER */}
+<section className="py-20 px-6" dir="rtl">
+  <AnimatedSection>
+    <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-6 text-gradient-cyan">מה אני מציע?</h2>
+    <p className="text-center text-lg max-w-3xl mx-auto mb-12 text-[var(--color-text-muted)]">
+      מסלול למידה ממוקד תוצאות באמצעות שיעורים פרטיים אחד על אחד או בקבוצה קטנה, בזום או פרונטלי, עם גישה לחומרים שיחסכו זמן ויעלו את הביטחון לפני כל מבחן.
+    </p>
+  </AnimatedSection>
+
+  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+    {[
+      {
+        id: 1,
+        ribbon: '',
+        label: '',
+        labelColor: '',
+        title: 'שיעור ממוקד',
+        subtitle: 'מפגש חד־פעמי לדיוק והבהרה',
+        color: 'from-purple-600 to-purple-500',
+        bullets: [
+          '60 דקות של שיעור ממוקד',
+          'הקלטת השיעור לצפייה חוזרת',
+        ],
+        cta: 'בדיקת זמינות לשיעור ממוקד',
+      },
+      {
+        id: 2,
+        ribbon: 'מומלץ',
+        label: 'מיקוד למבחן',
+        labelColor: 'bg-blue-500/90 text-white',
+        title: 'מסלול התקדמות (4)',
+        subtitle: 'ארבעה שיעורים לבניית שליטה וביטחון',
+        color: 'from-blue-600 to-blue-500',
+        bullets: [
+          '4×60 דקות - תוכנית קצב אישית',
+          'גישה לספריית סיכומים',
+          'תרגולים ומבחני דמה בין שיעורים',
+          'ליווי ומשוב קצר בין המפגשים',
+        ],
+        cta: 'בדיקת זמינות למסלול התקדמות',
+      },
+      {
+        id: 3,
+        ribbon: 'הכי משתלם',
+        label: 'מיקוד למבחן',
+        labelColor: 'bg-blue-500/90 text-white',
+        title: 'מסלול הצלחה (8)',
+        subtitle: 'שמונה שיעורים להבטחת הצלחה וציונים מרשימים',
+        color: 'from-orange-500 to-amber-400',
+        bullets: [
+          '8×60 דקות - שיטה מלאה וצעד־צעד',
+          'עד שני קורסים במסלול אחד',
+          'ספריית סיכומים + מצגות + שיעורים מוקלטים',
+          'סט תרגול מתקדם ומבחני דמה',
+          'ליווי רציף בוואטסאפ עד ליום הבחינה',
+        ],
+        cta: 'בדיקת זמינות למסלול הצלחה',
+      },
+      {
+        id: 4,
+        ribbon: 'פרימיום',
+        label: 'ליווי קבוע',
+        labelColor: 'bg-emerald-500/90 text-white',
+        title: 'מסלול מאסטר (שנתי)',
+        subtitle: 'ליווי מלא - 4 שיעורים בחודש',
+        color: 'from-emerald-500 to-teal-500',
+        bullets: [
+          '4×60 דקות בכל חודש ובקצב עקבי כל השנה',
+          ' כל הקורסים כלולים - ללא הגבלה',
+          'גישה מלאה לספרייה: סיכומים, מצגות והקלטות',
+          'תרגול מתמשך + מבחני דמה לאורך השנה',
+          'ליווי שוטף בוואטסאפ',
+        ],
+        cta: 'בדיקת זמינות למסלול השנתי',
+      },
+    ].map((card, i) => (
+      <AnimatedSection key={card.id} delay={i * 200}>
+        <div className="relative glass-card p-8 text-right premium-border h-full flex flex-col">
+          {/* מספר כרטיס */}
+          <div className={`absolute -top-6 left-1/2 -translate-x-1/2 text-white rounded-full h-12 w-12 flex items-center justify-center text-xl font-bold bg-gradient-to-br ${card.color}`}>
+            {card.id}
+          </div>
+
+          {/* ריבון + לייבל באותה פינה */}
+          {(card.ribbon || card.label) && (
+            <div className="absolute -top-4 right-4 flex flex-col gap-1 items-end">
+              {card.ribbon && (
+                <div className="bg-yellow-300/90 text-black text-xs font-bold px-3 py-1 rounded-full shadow">
+                  {card.ribbon}
+                </div>
+              )}
+              {card.label && (
+                <div className={`${card.labelColor} text-xs font-semibold px-3 py-1 rounded-full shadow`}>
+                  {card.label}
+                </div>
+              )}
+            </div>
+          )}
+
+         <h3 className="font-bold text-2xl mt-4 mb-4 text-center">{card.title}</h3>
+          <p className="text-sm text-[var(--color-text-muted)] mb-4 text-center">
+          {card.subtitle}
+          </p>
+          <ul className="space-y-2 mb-6">
+            {card.bullets.map((b, idx) => (
+              <li key={idx} className="flex items-start gap-2">
+                <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-purple-600 to-blue-600 text-white text-xs">✓</span>
+                <span className="text-[var(--color-text)]/90">{b}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-auto">
+            <button
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="w-full"
+            >
+              {card.cta}
+            </button>
+          </div>
+        </div>
+      </AnimatedSection>
+    ))}
+  </div>
+
+  <AnimatedSection delay={650}>
+    <div className="text-center mt-6 text-sm text-[var(--color-text-muted)]">
+      מספר המקומות למסלולים מוגבל בכל חודש כדי לשמור על ליווי אישי וצמוד.
+    </div>
+  </AnimatedSection>
+</section>
 
       {/* FAQ SECTION */}
       <section className="py-20 px-6">
