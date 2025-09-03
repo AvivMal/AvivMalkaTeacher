@@ -117,3 +117,34 @@ button:focus { outline:2px solid var(--color-accent-alt); outline-offset:3px; }
 .btn--gold{ background: linear-gradient(135deg,#f59e0b 0%,#fbbf24 100%) !important; }
 .btn--ghost{ background: transparent !important; border-color: rgba(255,255,255,.2); color: var(--color-text) !important; }
 a.btn{ text-decoration: none; }
+
+/* FAQ: פס דקורטיבי עדין בצד, צבע עדין ב-hover/open */
+.faq-item {
+  position: relative;
+}
+.faq-item::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;  /* RTL/LTR אוטומטי */
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  border-radius: 2px;
+  background: transparent;
+  transition: background-color .25s ease, opacity .25s ease;
+  opacity: .6;
+}
+.faq-item:hover::before {
+  background: linear-gradient(180deg, rgba(124,58,237,.45), rgba(37,99,235,.45)); /* סגול → כחול רך */
+}
+.faq-item[style*="bg-white/.035"], 
+.faq-item:has([aria-expanded="true"])::before {
+  /* כשפתוח – פס מעט יותר נראה (ללא אגרסיביות) */
+  background: linear-gradient(180deg, rgba(124,58,237,.6), rgba(37,99,235,.6));
+  opacity: .9;
+}
+
+/* טיפ עיצוב ל-prose אם תשתמש/י ב-JSX בתשובות */
+.prose p { margin: 0 0 .7rem 0; }
+.prose ul { margin: .25rem 0 0 0; padding: 0; }
+.prose li { margin: .15rem 0; }

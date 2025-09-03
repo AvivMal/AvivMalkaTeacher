@@ -9,7 +9,8 @@
   import materialsImage from "./pictures/Live Session2.png";
   import lessonImage from "./pictures/Tailored Materials.png";
   import trackingImage from "./pictures/Tracking & Improvement.png";
-  import howSectionImg from './pictures/how section.png'
+  import howSectionImg from './pictures/how section.png';
+  import aboutMe from './pictures/About-me.jpg';
 
   const testimonials = [
     {
@@ -123,12 +124,55 @@
     const [openFAQ, setOpenFAQ] = useState(null);
     const toggleFAQ = (index) => setOpenFAQ(openFAQ === index ? null : index);
 
-    const faqs = [
-      { question: "מתי רואים תוצאות?", answer: "רוב התלמידים מדווחים על שיפור בהבנה ובביטחון כבר לאחר מספר שיעורים בודדים. התוצאות הסופיות תלויות בהתמדה אישית, אך אנחנו שואפים לשיפור מהיר ומשמעותי." },
-      { question: "איך לבחור בין זום לפרונטלי?", answer: "שיעורי הזום מציעים גמישות מרבית ונוחות, ללא צורך לצאת מהבית. שיעורים פרונטליים מתאימים למי שמחפש מגע למימוד ממוקד. נשמח לייעץ לך במה הכי מתאים עבורך!" },
-      { question: "האם יש שיעור ניסיון?", answer: "כן, השיעור הראשון הוא שיעור היכרות, שבו נכיר, נאבחן את הצרכים שלך ונבנה יחד תוכנית. זהו שיעור מצוין להרגיש את השיטה ולהחליט אם היא מתאימה לך." },
-      { question: "מה קורה אם שיעור לא מוצלח?", answer: "נציין שזה קורה לעיתים רחוקות, אבל שביעות הרצון שלך חשובה לי מכל. אם אינך מרוצה משיעור מסוים, נדאג למצוא פתרון מתאים, כולל אפשרות לשיעור חלופי או זיכוי." },
-    ];
+   const faqs = [
+  {
+    question: "תוך כמה זמן רואים תוצאות?",
+    answer:
+      "ברוב המקרים מרגישים בהירות וביטחון כבר אחרי מספר מצומצם של מפגשים. קצב ההתקדמות תלוי בקצב האישי שלך, ברמת הפערים איתם אתה מגיע, בתרגול שלנו יחד וכמובן בתרגול העצמאי שלך. המטרה שלי היא לייצר יחד איתך תוצאות מדידות כמה שיותר מהר ומבלי לבזבז זמן."
+  },
+  {
+    question: "איך לבחור בין שיעור בזום לשיעור פרונטלי?",
+    answer:
+  (<>
+   <p>זום חוסך נסיעות, מאפשר שיתוף מסך והקלטה, ולכן מתאים לרוב הלומדים.</p>
+      <p>פרונטלי עדיף למי שמתרכז טוב יותר בחדר לימוד פיזי.</p>
+      <p>הכי מומלץ להתחיל בזום, לבדוק התאמה ולשלב פרונטלי לפי צורך.</p></>)
+  },
+  {
+    question: "איך אדע איזו חבילה מתאימה לי?",
+    answer: (<>
+      <p>
+        כלל אצבע לבחירת מסלול:
+      </p>
+      <ul className="list-disc list-inside mt-2 space-y-1">
+        <li><strong>שיעור ממוקד</strong> – מתאים לחידוד או השלמה של נושא מסוים לפני מבחן.</li>
+        <li><strong>מסלול התקדמות (4)</strong> – סדרה של ארבעה מפגשים לחזרה מסודרת, הכנה מקצועית ותרגול עד הבחינה.</li>
+        <li><strong>מסלול הצלחה (8)</strong> – חזרה מלאה ומקיפה על כל חומר הקורס מאפס, או הכנה לשני קורסים במקביל, כולל חזרות ותרגולים ממוקדים.</li>
+        <li><strong>מסלול מאסטר (שנתי)</strong> – ליווי רציף לאורך השנה, בכל הקורסים או הנושאים שתצטרך.</li>
+      </ul>
+      <p className="mt-3">
+        בכל מקרה, נבצע שיחת היכרות קצרה כדי להתאים לך את המסלול המדויק ביותר למטרות האישיות שלך.
+      </p>
+    </>
+    )
+  },
+  {
+    question: "מה קורה אם עדיין לא הצלחתי במבחן או שהחומר לא מספיק ברור?",
+    answer:
+      "לא מוותרים. ננתח יחד את המבחן, נזהה פערים, נבנה חיזוק ממוקד ונקבע תרגול נוסף עד שהכול יושב. המטרה היא להבין כמו שצריך, לרכוש ביטחון ולהגיע לתוצאה גבוהה ללא פשרות."
+  },
+  {
+    question: "מה כלול בין שיעור לשיעור?",
+    answer:
+      "בין המפגשים תקבלו גישה מלאה לספריית סיכומים ומצגות, תרגולים ומבחני דמה, הקלטות של שיעורים שכבר התקיימו, וליווי אישי בוואטסאפ לשאלות שעולות בזמן התרגול העצמי."
+  },
+  {
+    question: "האם ניתן לבטל או להזיז שיעור לאחר שקבעתי?",
+    answer:
+      "התיאום גמיש ומהיר, ניתן לשנות מועד שיעור בהתראה של 24 שעות מראש. בתקופות מבחנים הביקוש גבוה במיוחד, לכן מומלץ לשריין מקומות מראש כדי להבטיח את המועד שהכי מתאים לך."
+  }
+];
+
 
     return (
     <div dir="rtl" className="bg-[var(--color-bg)] text-[var(--color-text)] font-assistant overflow-x-hidden">
@@ -262,14 +306,16 @@
     </div>
 
     <AnimatedSection delay={800}>
-      <div className="mt-12 text-center">
-        <button className="btn">
-          שריינו את השיעור הקרוב הבא
-        </button>
-        <div className="mt-3 text-sm text-[var(--color-text-muted)]">
-        </div>
-      </div>
-    </AnimatedSection>
+  <div className="mt-12 text-center">
+    <button
+      onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+      className="btn"
+    >
+      שריינו את השיעור הקרוב הבא
+    </button>
+    <div className="mt-3 text-sm text-[var(--color-text-muted)]"></div>
+  </div>
+</AnimatedSection>
   </section>
 
 
@@ -552,33 +598,158 @@
       </div>
     </AnimatedSection>
   </section>
+  {/* ABOUT */}
+<section id="about" className="py-20 px-6" dir="rtl">
+  <div className="max-w-6xl mx-auto grid md:grid-cols-12 gap-10 items-center">
+    
+    {/* טקסט */}
+    <div className="md:col-span-7">
+      <div className="glass-card p-8 md:p-10 premium-border">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-center md:text-right mb-4 text-gradient-purple">
+          קצת עליי
+        </h2>
 
-        {/* FAQ SECTION */}
-        <section className="py-20 px-6">
-          <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-12">שאלות נפוצות</h2>
-          </AnimatedSection>
-          <div className="max-w-4xl mx-auto space-y-4">
-            {faqs.map((faq, index) => (
-              <AnimatedSection key={index} delay={index * 100}>
-                <div className="glass-card p-6 cursor-pointer interactive-card">
-                  <div className="flex justify-between items-center" onClick={() => toggleFAQ(index)}>
-                    <h3 className="font-bold text-xl flex items-center">
-                      <span className="rounded-full h-7 w-7 flex items-center justify-center text-sm ml-3 bg-white/10">ℹ️</span>
-                      {faq.question}
-                    </h3>
-                    <svg className={`w-6 h-6 transform transition-transform duration-300 ${openFAQ === index ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
+        <p className="text-lg md:text-xl font-semibold text-center md:text-right text-[var(--color-text)]/90 mb-4">
+          היי, אני <span className="text-gradient-gold">אביב מלכה</span>, מרצה־מתגבר במכללה וסטודנט למערכות מידע. <br/>
+          המטרה שלי? לעזור לכל תלמיד להפוך בלבול - לביטחון והצלחה אמיתית בציונים.
+        </p>
+
+        <p className="text-lg text-[var(--color-text-muted)] leading-relaxed mb-5 text-center md:text-right">
+          פעם גם אני הייתי מתוסכל מהלימודים; יוצא מריכוז, מתקשה להבין חומר ומרגיש שזה גדול עליי. בשלב מסוים הבנתי שהבעיה היא לא בי, אלא בדרך שבה אני ניגש לחומר. פיתחתי שיטה ברורה וממוקדת שהחזירה לי את הביטחון והביאה להצלחות. היום אני מלמד תלמידים וסטודנטים את אותה שיטה, כי אני מאמין שאין דבר כזה "קשה מדי" – עם גישה נכונה ושיטה נכונה, כל אחד יכול להצליח.        </p>
+        {/* ערך מוסף */}
+        <ul className="grid sm:grid-cols-2 gap-3 mb-6 text-[var(--color-text)]/90">
+          <li className="flex items-start gap-2"><span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-purple-600 to-blue-600 text-white text-xs">✓</span> התאמה אישית מלאה וקצב שמתאים לך</li>
+          <li className="flex items-start gap-2"><span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-purple-600 to-blue-600 text-white text-xs">✓</span> ספרייה ייעודית: סיכומים, מצגות, שיעורים מוקלטים</li>
+          <li className="flex items-start gap-2"><span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-purple-600 to-blue-600 text-white text-xs">✓</span> תרגול ממוקד + מבחני דמה עד ליום הבחינה</li>
+          <li className="flex items-start gap-2"><span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-purple-600 to-blue-600 text-white text-xs">✓</span> ליווי זמין ושקוף – גם בין שיעורים</li>
+        </ul>
+
+{/* באדג'ים קטנים לבניית אמון */}
+<div className="flex flex-wrap gap-2 mb-6">
+  <span className="px-3 py-1 rounded-full bg-white/10 text-sm">מרצה־מתגבר</span>
+  <span className="px-3 py-1 rounded-full bg-white/10 text-sm">מערכות מידע</span>
+  <span className="px-3 py-1 rounded-full bg-white/10 text-sm">מנהל עסקים</span>
+  <span className="px-3 py-1 rounded-full bg-white/10 text-sm">בגרויות מתמטיקה ואנגלית</span>
+  <span className="px-3 py-1 rounded-full bg-white/10 text-sm">100% התאמה אישית</span>
+  <span className="px-3 py-1 rounded-full bg-white/10 text-sm">+50 תלמידים מרוצים</span>
+</div>
+
+
+        {/* שורה אישית + חזון */}
+       <p className="text-[var(--color-text-muted)] leading-relaxed mb-6 text-center md:text-right">
+  אוהב התפתחות אישית (וקפה ☕) ומאמין שבכל אחד מסתתר הרבה יותר ממה שהוא מדמיין. 
+  החזון שלי: להביא שיטות למידה עדכניות לעידן ה־AI ולתת לכל תלמיד את הכלים להצטיין.
+</p>
+
+        <div className="text-center md:text-right">
+          <button
+            className="btn"
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            בואו נבדוק זמינות לשיעור ראשון
+          </button>
+        </div>
+      </div>
+    </div>
+
+    {/* תמונה */}
+    <div className="md:col-span-5">
+      <div className="relative mx-auto w-[min(420px,90vw)]">
+        <img
+          src={aboutMe}
+          alt="אביב מלכה"
+          className="w-full aspect-[4/5] object-cover rounded-3xl shadow-2xl ring-1 ring-white/10"
+        />
+        {/* הילה עדינה */}
+        <div className="pointer-events-none absolute -z-10 -inset-4 rounded-[2rem] blur-3xl opacity-30 bg-gradient-to-br from-purple-600/40 to-blue-600/40"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* FAQ SECTION */}
+<section className="py-20 px-6">
+  <AnimatedSection>
+    <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4 text-gradient-purple">
+      שאלות נפוצות
+    </h2>
+    <p className="text-center text-[var(--color-text-muted)] mb-10">
+      קיצרנו את המידע כדי לעזור לך להחליט מהר ובביטחון.
+    </p>
+  </AnimatedSection>
+
+  <div className="max-w-5xl mx-auto space-y-4">
+    {faqs.map((faq, index) => {
+      const open = openFAQ === index;
+      return (
+        <AnimatedSection key={index} delay={index * 80}>
+          <div
+            className={`faq-item glass-card-alt premium-border p-5 md:p-6 transition-all duration-300
+              ${open ? "bg-white/[.035] border-white/25" : "hover:bg-white/[.02]"}
+            `}
+          >
+            {/* כותרת האקורדיון */}
+            <button
+              className="w-full flex items-center justify-between text-right"
+              onClick={() => toggleFAQ(index)}
+              aria-expanded={open}
+              aria-controls={`faq-panel-${index}`}
+            >
+              <div className="flex items-center gap-3">
+                {/* Chip עדין במקום גרדיאנט בוהק */}
+                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full 
+                                 border border-white/15 text-[var(--color-text-muted)] text-sm bg-white/5">
+                  ?
+                </span>
+                <h3 className="font-bold text-lg md:text-xl text-[var(--color-text)]">
+                  {faq.question}
+                </h3>
+              </div>
+
+              <svg
+                className={`w-6 h-6 transition-transform duration-300 ${open ? "rotate-180" : ""} text-[var(--color-text-muted)]`}
+                fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {/* הגוף */}
+            <div
+              id={`faq-panel-${index}`}
+              className={`grid transition-all duration-300 ease-out ${open ? "grid-rows-[1fr] mt-4" : "grid-rows-[0fr]"}`}
+            >
+              <div className="overflow-hidden">
+                {/* אם answer הוא מחרוזת */}
+                {typeof faq.answer === "string" ? (
+                  <p className="leading-relaxed text-[var(--color-text-muted)]">{faq.answer}</p>
+                ) : (
+                  /* ואם הוא JSX (כמו ה־<p>…</p> + <ul>…</ul>) */
+                  <div className="prose prose-invert prose-sm max-w-none text-[var(--color-text-muted)]">
+                    {faq.answer}
                   </div>
-                  {openFAQ === index && (
-                    <p className="mt-4 leading-relaxed text-[var(--color-text-muted)] animate-fade-in-up">{faq.answer}</p>
-                  )}
-                </div>
-              </AnimatedSection>
-            ))}
+                )}
+              </div>
+            </div>
           </div>
-        </section>
+        </AnimatedSection>
+      );
+    })}
+  </div>
+
+  {/* CTA קצר בסוף ה-FAQ */}
+  <AnimatedSection delay={480}>
+    <div className="text-center mt-10">
+      <button
+        onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+        className="btn"
+      >
+        עדיין מתלבטים? דברו איתי ונבחר יחד את המסלול המתאים
+      </button>
+    </div>
+  </AnimatedSection>
+</section>
+
 
         {/* CONTACT */}
         <ContactForm />
