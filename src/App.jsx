@@ -142,17 +142,16 @@
     question: "איך אדע איזו חבילה מתאימה לי?",
     answer: (<>
       <p>
-        כלל אצבע לבחירת מסלול:
-      </p>
-      <ul className="list-disc list-inside mt-2 space-y-1">
-        <li><strong>שיעור ממוקד</strong> – מתאים לחידוד או השלמה של נושא מסוים לפני מבחן.</li>
-        <li><strong>מסלול התקדמות (4)</strong> – סדרה של ארבעה מפגשים לחזרה מסודרת, הכנה מקצועית ותרגול עד הבחינה.</li>
-        <li><strong>מסלול הצלחה (8)</strong> – חזרה מלאה ומקיפה על כל חומר הקורס מאפס, או הכנה לשני קורסים במקביל, כולל חזרות ותרגולים ממוקדים.</li>
-        <li><strong>מסלול מאסטר (שנתי)</strong> – ליווי רציף לאורך השנה, בכל הקורסים או הנושאים שתצטרך.</li>
-      </ul>
-      <p className="mt-3">
-        בכל מקרה, נבצע שיחת היכרות קצרה כדי להתאים לך את המסלול המדויק ביותר למטרות האישיות שלך.
-      </p>
+    כלל אצבע לבחירת מסלול:
+  </p>
+  <ul className="list-disc list-inside mt-2 space-y-1">
+    <li><strong>מסלול שיעור פוקוס</strong> – מתאים למי שרוצה חידוד נקודתי או השלמה של נושא מסוים לפני מבחן או עבודה.</li>
+    <li><strong>מסלול הצלחה ממוקדת</strong> – סדרה של כ־5 שיעורים פרטיים במחיר מסובסד, לחזרה מסודרת והכנה מקצועית לקורס אחד, כולל גישה להקלטות וחומרי למידה.</li>
+    <li><strong>מסלול אישי להצלחה</strong> – תכנית ליווי אישית מותאמת לסטודנטים עם כמה מבחנים, עבודה אקדמית, היעדרות ממושכת או צורך להעמיק בתחום מסוים. כולל בניית תכנית מותאמת, הכנת חומרים אישיים וליווי צמוד מעבר לשיעורים.</li>
+  </ul>
+  <p className="mt-3">
+    בכל מקרה נוכל לבצע שיחת היכרות קצרה כדי לבחור יחד את המסלול המדויק ביותר עבורך.
+  </p>
     </>
     )
   },
@@ -241,14 +240,16 @@
         <h2 className="text-3xl md:text-4xl font-extrabold text-center md:text-right mb-6 text-gradient-purple drop-shadow-lg">
           מרגישים אבודים לפני המבחן?
         </h2>
-        <p className="text-lg text-[var(--color-text-muted)] leading-relaxed text-center md:text-right">
-          אני יודע איך זה מרגיש לשבת מול חומר לימודי במשך שעות, להשקיע זמן וכוח ועדיין להרגיש תקוע ומתוסכל לפני מבחן.
-          <br /><br />
-          גם אני הייתי שם. ההבנה ששיטת הלמידה היא הבעיה, ולא היכולת שלי, שינתה לי את הכל. ברגע שפיתחתי לעצמי דרך פשוטה וברורה ללמוד – הציונים החלו לעלות, והביטחון חזר.
-          <br /><br />
-          זו הסיבה שאני עושה את מה שאני עושה היום: אני מאמין שאף תלמיד לא צריך לעבור את הדרך הזו לבד, כל אחד יכול להצליח ברגע שהוא לומד את השיטה שמתאימה לו,
-          ואין תחושה מספקת יותר עבורי מלראות תלמיד שמצליח ומספר על ציונים שלא האמין שיוכל להגיע אליהם.
-        </p>
+<p className="text-lg text-[var(--color-text-muted)] leading-relaxed text-center md:text-right">
+  אני יודע איך זה מרגיש להשקיע שעות בלמידה ולהרגיש תקוע ומתוסכל לפני מבחן.
+  <br /><br />
+  גם אני הייתי שם, עד שהבנתי שהבעיה היא לא בי אלא בדרך שבה למדתי.
+  כשהצלחתי לפתח לעצמי שיטה פשוטה וברורה, הציונים עלו והביטחון חזר.
+  <br /><br />
+  מאז בחרתי לעזור לאחרים לעבור את אותה דרך.
+  אני מאמין שכל אחד יכול להצליח כשיש לו את התמיכה והשיטה שמתאימה לו,
+  ואין דבר מרגש יותר מלראות תלמיד שמגלה בעצמו כמה הוא מסוגל.
+</p>
       </AnimatedSection>
 
       <AnimatedSection delay={200}>
@@ -475,122 +476,104 @@
         מסלול למידה ממוקד תוצאות באמצעות שיעורים פרטיים אחד על אחד או בקבוצה קטנה, בזום או פרונטלי, עם גישה לחומרים שיחסכו זמן ויעלו את הביטחון לפני כל מבחן.
       </p>
     </AnimatedSection>
+<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+  {[
+    {
+      id: 1,
+      ribbon: '',
+      label: '',
+      labelColor: '',
+      title: 'מסלול שיעור פוקוס',
+      subtitle: 'מפגש חד־פעמי לדיוק והבהרה',
+      color: 'from-purple-600 to-purple-500',
+      bullets: [
+        '60 דקות של שיעור ממוקד',
+        'הקלטת השיעור לצפייה חוזרת',
+      ],
+      cta: 'בדיקת זמינות לשיעור פוקוס',
+    },
+    {
+      id: 2,
+      ribbon: 'מומלץ',
+      label: 'הכנה לקורס ספציפי',
+      labelColor: 'bg-blue-500/90 text-white',
+      title: 'מסלול הצלחה ממוקדת',
+      subtitle: 'כ־5 שיעורים פרטיים במחיר מסובסד לקראת הצלחה בקורס אחד',
+      color: 'from-blue-600 to-blue-500',
+      bullets: [
+        '5×60 דקות – קצב אישי ועדכוני התקדמות',
+        'גישה להקלטות השיעורים',
+        'גישה לחומרי למידה וסיכומים',
+        'תרגולים ומבחני דמה בין שיעורים',
+        'ליווי ומשוב קצר בין המפגשים',
+      ],
+      cta: 'בדיקת זמינות למסלול הצלחה ממוקדת',
+    },
+    {
+      id: 3,
+      ribbon: 'פרימיום',
+      label: 'תכנית אישית',
+      labelColor: 'bg-emerald-500/90 text-white',
+      title: 'מסלול אישי להצלחה',
+      subtitle: 'ליווי צמוד ותכנית מותאמת למצבים עם כמה מבחנים/עבודות או העמקה מקצועית',
+      color: 'from-emerald-500 to-teal-500',
+      bullets: [
+        'כולל את כל מה שב״הצלחה ממוקדת״',
+        'בניית תכנית אישית מסודרת להצלחה ומימוש המטרות',
+        'הכנת חומרים בהתאמה אישית',
+        'ליווי צמוד מעבר לשיעורים',
+        'המחיר נקבע בהתאם למשך תקופת הליווי',
+      ],
+      cta: 'שיחת התאמה למסלול אישי',
+    },
+  ].map((card, i) => (
+    <AnimatedSection key={card.id} delay={i * 200}>
+      <div className="relative glass-card p-8 text-right premium-border h-full flex flex-col">
+        <div className={`absolute -top-6 left-1/2 -translate-x-1/2 text-white rounded-full h-12 w-12 flex items-center justify-center text-xl font-bold bg-gradient-to-br ${card.color}`}>
+          {card.id}
+        </div>
 
-    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-      {[
-        {
-          id: 1,
-          ribbon: '',
-          label: '',
-          labelColor: '',
-          title: 'שיעור ממוקד',
-          subtitle: 'מפגש חד־פעמי לדיוק והבהרה',
-          color: 'from-purple-600 to-purple-500',
-          bullets: [
-            '60 דקות של שיעור ממוקד',
-            'הקלטת השיעור לצפייה חוזרת',
-          ],
-          cta: 'בדיקת זמינות לשיעור ממוקד',
-        },
-        {
-          id: 2,
-          ribbon: 'מומלץ',
-          label: 'מיקוד למבחן',
-          labelColor: 'bg-blue-500/90 text-white',
-          title: 'מסלול התקדמות (4)',
-          subtitle: 'ארבעה שיעורים לבניית שליטה וביטחון',
-          color: 'from-blue-600 to-blue-500',
-          bullets: [
-            '4×60 דקות - תוכנית קצב אישית',
-            'גישה לספריית סיכומים',
-            'תרגולים ומבחני דמה בין שיעורים',
-            'ליווי ומשוב קצר בין המפגשים',
-          ],
-          cta: 'בדיקת זמינות למסלול התקדמות',
-        },
-        {
-          id: 3,
-          ribbon: 'הכי משתלם',
-          label: 'מיקוד למבחן',
-          labelColor: 'bg-blue-500/90 text-white',
-          title: 'מסלול הצלחה (8)',
-          subtitle: 'שמונה שיעורים להבטחת הצלחה וציונים מרשימים',
-          color: 'from-orange-500 to-amber-400',
-          bullets: [
-            '8×60 דקות - שיטה מלאה וצעד־צעד',
-            'עד שני קורסים במסלול אחד',
-            'ספריית סיכומים + מצגות + שיעורים מוקלטים',
-            'סט תרגול מתקדם ומבחני דמה',
-            'ליווי רציף בוואטסאפ עד ליום הבחינה',
-          ],
-          cta: 'בדיקת זמינות למסלול הצלחה',
-        },
-        {
-          id: 4,
-          ribbon: 'פרימיום',
-          label: 'ליווי קבוע',
-          labelColor: 'bg-emerald-500/90 text-white',
-          title: 'מסלול מאסטר (שנתי)',
-          subtitle: 'ליווי מלא - 4 שיעורים בחודש',
-          color: 'from-emerald-500 to-teal-500',
-          bullets: [
-            '4×60 דקות בכל חודש ובקצב עקבי כל השנה',
-            ' כל הקורסים כלולים - ללא הגבלה',
-            'גישה מלאה לספרייה: סיכומים, מצגות והקלטות',
-            'תרגול מתמשך + מבחני דמה לאורך השנה',
-            'ליווי שוטף בוואטסאפ',
-          ],
-          cta: 'בדיקת זמינות למסלול השנתי',
-        },
-      ].map((card, i) => (
-        <AnimatedSection key={card.id} delay={i * 200}>
-          <div className="relative glass-card p-8 text-right premium-border h-full flex flex-col">
-            {/* מספר כרטיס */}
-            <div className={`absolute -top-6 left-1/2 -translate-x-1/2 text-white rounded-full h-12 w-12 flex items-center justify-center text-xl font-bold bg-gradient-to-br ${card.color}`}>
-              {card.id}
-            </div>
-
-            {/* ריבון + לייבל באותה פינה */}
-            {(card.ribbon || card.label) && (
-              <div className="absolute -top-4 right-4 flex flex-col gap-1 items-end">
-                {card.ribbon && (
-                  <div className="bg-yellow-300/90 text-black text-xs font-bold px-3 py-1 rounded-full shadow">
-                    {card.ribbon}
-                  </div>
-                )}
-                {card.label && (
-                  <div className={`${card.labelColor} text-xs font-semibold px-3 py-1 rounded-full shadow`}>
-                    {card.label}
-                  </div>
-                )}
+        {(card.ribbon || card.label) && (
+          <div className="absolute -top-4 right-4 flex flex-col gap-1 items-end">
+            {card.ribbon && (
+              <div className="bg-yellow-300/90 text-black text-xs font-bold px-3 py-1 rounded-full shadow">
+                {card.ribbon}
               </div>
             )}
-
-          <h3 className="font-bold text-2xl mt-4 mb-4 text-center">{card.title}</h3>
-            <p className="text-sm text-[var(--color-text-muted)] mb-4 text-center">
-            {card.subtitle}
-            </p>
-            <ul className="space-y-2 mb-6">
-              {card.bullets.map((b, idx) => (
-                <li key={idx} className="flex items-start gap-2">
-                  <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-purple-600 to-blue-600 text-white text-xs">✓</span>
-                  <span className="text-[var(--color-text)]/90">{b}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-auto">
-              <button
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="btn w-full"
-              >
-                {card.cta}
-              </button>
-            </div>
+            {card.label && (
+              <div className={`${card.labelColor} text-xs font-semibold px-3 py-1 rounded-full shadow`}>
+                {card.label}
+              </div>
+            )}
           </div>
-        </AnimatedSection>
-      ))}
-    </div>
+        )}
+
+        <h3 className="font-bold text-2xl mt-4 mb-4 text-center">{card.title}</h3>
+        <p className="text-sm text-[var(--color-text-muted)] mb-4 text-center">
+          {card.subtitle}
+        </p>
+
+        <ul className="space-y-2 mb-6">
+          {card.bullets.map((b, idx) => (
+            <li key={idx} className="flex items-start gap-2">
+              <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-purple-600 to-blue-600 text-white text-xs">✓</span>
+              <span className="text-[var(--color-text)]/90">{b}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-auto">
+          <button
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            className="btn w-full"
+          >
+            {card.cta}
+          </button>
+        </div>
+      </div>
+    </AnimatedSection>
+  ))}
+</div>
 
     <AnimatedSection delay={650}>
       <div className="text-center mt-6 text-sm text-[var(--color-text-muted)]">
@@ -609,36 +592,19 @@
           קצת עליי
         </h2>
 
-        <p className="text-lg md:text-xl font-semibold text-center md:text-right text-[var(--color-text)]/90 mb-4">
-          היי, אני <span className="text-gradient-gold">אביב מלכה</span>, מרצה־מתגבר במכללה וסטודנט למערכות מידע. <br/>
-          המטרה שלי? לעזור לכל תלמיד להפוך בלבול - לביטחון והצלחה אמיתית בציונים.
-        </p>
+<p className="text-lg md:text-xl font-semibold text-center md:text-right text-[var(--color-text)]/90 mb-4">
+  היי, אני <span className="text-gradient-gold">אביב מלכה</span>, מתגבר במרכז האקדמי פרס וסטודנט למערכות מידע. <br/>
+  המטרה שלי היא לעזור לכל תלמיד להפוך בלבול לביטחון והצלחה אמיתית בלימודים.
+</p>
 
-        <p className="text-lg text-[var(--color-text-muted)] leading-relaxed mb-5 text-center md:text-right">
-          פעם גם אני הייתי מתוסכל מהלימודים; יוצא מריכוז, מתקשה להבין חומר ומרגיש שזה גדול עליי. בשלב מסוים הבנתי שהבעיה היא לא בי, אלא בדרך שבה אני ניגש לחומר. פיתחתי שיטה ברורה וממוקדת שהחזירה לי את הביטחון והביאה להצלחות. היום אני מלמד תלמידים וסטודנטים את אותה שיטה, כי אני מאמין שאין דבר כזה "קשה מדי" – עם גישה נכונה ושיטה נכונה, כל אחד יכול להצליח.        </p>
-        {/* ערך מוסף */}
-        <ul className="grid sm:grid-cols-2 gap-3 mb-6 text-[var(--color-text)]/90">
-          <li className="flex items-start gap-2"><span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-purple-600 to-blue-600 text-white text-xs">✓</span> התאמה אישית מלאה וקצב שמתאים לך</li>
-          <li className="flex items-start gap-2"><span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-purple-600 to-blue-600 text-white text-xs">✓</span> ספרייה ייעודית: סיכומים, מצגות, שיעורים מוקלטים</li>
-          <li className="flex items-start gap-2"><span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-purple-600 to-blue-600 text-white text-xs">✓</span> תרגול ממוקד + מבחני דמה עד ליום הבחינה</li>
-          <li className="flex items-start gap-2"><span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-purple-600 to-blue-600 text-white text-xs">✓</span> ליווי זמין ושקוף – גם בין שיעורים</li>
-        </ul>
+<p className="text-lg text-[var(--color-text-muted)] leading-relaxed mb-5 text-center md:text-right">
+  גם אני הייתי מתוסכל מהלימודים, עד שהבנתי שהבעיה היא לא בי, אלא בדרך הלמידה שהייתה לא יעילה. 
+  ברגע שפיתחתי שיטה פשוטה וברורה, הכל השתנה: הציונים עלו והביטחון חזר.
+</p>
 
-{/* באדג'ים קטנים לבניית אמון */}
-<div className="flex flex-wrap gap-2 mb-6">
-  <span className="px-3 py-1 rounded-full bg-white/10 text-sm">מרצה־מתגבר</span>
-  <span className="px-3 py-1 rounded-full bg-white/10 text-sm">מערכות מידע</span>
-  <span className="px-3 py-1 rounded-full bg-white/10 text-sm">מנהל עסקים</span>
-  <span className="px-3 py-1 rounded-full bg-white/10 text-sm">בגרויות מתמטיקה ואנגלית</span>
-  <span className="px-3 py-1 rounded-full bg-white/10 text-sm">100% התאמה אישית</span>
-  <span className="px-3 py-1 rounded-full bg-white/10 text-sm">+50 תלמידים מרוצים</span>
-</div>
-
-
-        {/* שורה אישית + חזון */}
-       <p className="text-[var(--color-text-muted)] leading-relaxed mb-6 text-center md:text-right">
-  אוהב התפתחות אישית (וקפה ☕) ומאמין שבכל אחד מסתתר הרבה יותר ממה שהוא מדמיין. 
-  החזון שלי: להביא שיטות למידה עדכניות לעידן ה־AI ולתת לכל תלמיד את הכלים להצטיין.
+<p className="text-[var(--color-text-muted)] leading-relaxed mb-6 text-center md:text-right">
+  אני מאמין שבכל אחד מסתתר הרבה יותר ממה שהוא מדמיין, 
+  וששיטות למידה נכונות יכולות לעזור לכם לשפר את היכולות שלכם בצורה שלא האמנתם.
 </p>
 
         <div className="text-center md:text-right">
@@ -673,9 +639,6 @@
     <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4 text-gradient-purple">
       שאלות נפוצות
     </h2>
-    <p className="text-center text-[var(--color-text-muted)] mb-10">
-      קיצרנו את המידע כדי לעזור לך להחליט מהר ובביטחון.
-    </p>
   </AnimatedSection>
 
   <div className="max-w-5xl mx-auto space-y-4">
