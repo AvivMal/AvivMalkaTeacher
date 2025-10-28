@@ -18,6 +18,9 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
+.input {
+  @apply w-full rounded-lg p-3 bg-[var(--color-bg)] text-white border border-[var(--color-border)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)];
+}
 
 @keyframes logo-spin {
   from {
